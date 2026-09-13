@@ -89,8 +89,6 @@ vm = {
     managed_disk_type = "Standard_LRS"
 
     computer_name  = "azlz-prod-comp"
-    admin_username = "naruto"
-    admin_password = "Naruto@123"
 
     disable_password_authentication = false
   }

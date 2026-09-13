@@ -34,7 +34,9 @@ module "pubip-prod" {
 }
 
 module "vm-prod" {
-  depends_on = [module.rg-prod, module.vnet-prod, module.subnet-prod, module.nsg-prod, module.pubip-prod]
-  source     = "../Child-Modules/VM"
-  var-vm     = var.vm
+  depends_on     = [module.rg-prod, module.vnet-prod, module.subnet-prod, module.nsg-prod, module.pubip-prod]
+  source         = "../Child-Modules/VM"
+  var-vm         = var.vm
+  admin_username = var.admin_username
+  admin_password = var.admin_password
 }

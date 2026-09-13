@@ -47,8 +47,8 @@ resource "azurerm_virtual_machine" "prod-vm"{
 
   os_profile {
     computer_name  = each.value.computer_name
-    admin_username = each.value.admin_username
-    admin_password = each.value.admin_password
+    admin_username = var.admin_username
+    admin_password = var.admin_password
   }
 
   os_profile_linux_config {
