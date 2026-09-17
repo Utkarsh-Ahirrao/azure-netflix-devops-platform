@@ -23,7 +23,6 @@ stages:
       inputs:
         provider: 'azurerm'
         command: 'init'
-        backendServiceArm: 'agent-azlz-pr1'
         workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
 
     - task: TerraformTaskV4@4
