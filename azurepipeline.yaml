@@ -10,23 +10,23 @@ stages:
   displayName: "Terraform Init Validate Plan"
 
   steps:
-    - task: TerraformTaskV4@4
-      displayName: "Terraform init"
-      inputs:
-        provider: "azurerm"
-        command: "init"
-        workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
+  - task: TerraformTaskV4@4
+    displayName: "Terraform init"
+    inputs:
+      provider: "azurerm"
+      command: "init"
+      workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
 
-    - task: TerraformTaskV4@4
-      displayName: "Terraform Validate"
-      inputs:
-        provider: "azurerm"
-        command: "validate"
-        workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
+  - task: TerraformTaskV4@4
+    displayName: "Terraform Validate"
+    inputs:
+      provider: "azurerm"
+      command: "validate"
+      workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
 
-    - task: TerraformTaskV4@4
-      displayName: "Terraform plan"
-      inputs:
-        provider: "azurerm"
-        command: "plan"
-        workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
+  - task: TerraformTaskV4@4
+    displayName: "Terraform plan"
+    inputs:
+      provider: "azurerm"
+      command: "plan"
+      workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
