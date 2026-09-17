@@ -37,3 +37,6 @@ stages:
         command: 'plan'
         environmentServiceNameAzureRM: 'agent-azlz-pr1'
         workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
+      env:
+        TF_VAR_admin_username: $(admin_username)
+        TF_VAR_admin_password: $(admin_password)
