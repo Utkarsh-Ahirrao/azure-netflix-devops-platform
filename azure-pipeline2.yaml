@@ -5,7 +5,7 @@ pool:
   name: Agent007
 
 stages:
-  - stage: "Inital Checkup"
+  - stage: "InitalCheckup"
     displayName: "Inital Checkup"
 
     jobs:
