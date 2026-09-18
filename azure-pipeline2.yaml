@@ -1,0 +1,39 @@
+trigger:
+  - main
+
+pool:
+  name: Agent007
+
+stages:
+  - stage: "Inital Checkup"
+    displayName: "Inital Checkup"
+
+    jobs:
+      - job: "terraformPlan"
+        displayName: "Working till Planning"
+
+        steps:
+          - task: TerraformInstaller@1
+            displayName: "Installing Terraform"
+
+          - script: terraform version
+            displayName: "Checking Version"
+
+          - script: terraform init
+            displayName: "initializing the terraform setup"
+            workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
+
+          - script: terraform validate
+            displayName: "checking syntax"
+            workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
+
+          - task: TerraformTaskV4@4
+            displayName: "running plan"  
+            inputs:
+              provider: 'azurerm'
+              command: 'plan'
+              environmentServiceNameAzureRM: 'agent-azlz-pr1'
+              workingDirectory: '$(System.DefaultWorkingDirectory)\Parent-Module'
+            env:
+              TF_VAR_admin_username: $(admin_username)
+              TF_VAR_admin_password: $(admin_password) 
