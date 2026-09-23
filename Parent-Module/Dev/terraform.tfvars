@@ -7,7 +7,7 @@ rg = {
 
 stgacc = {
   stg1 = {
-    name                     = "azlzprodstg001"
+    name                     = "stgaccut07"
     resource_group_name      = "azlz-prod-rg"
     location                 = "centralindia"
     account_tier             = "Standard"
